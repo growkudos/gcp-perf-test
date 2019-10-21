@@ -1,6 +1,9 @@
 # Performance Test
 This test is a speculative performance test about serving static assets from GCP.
 
+Setup: web server serving a file of roughly 500KB gets deployed in a GCP VM.
+Load test: request the file using the external IP of the VM.
+
 ## Prerequisites
 1. Docker
 2. Python 3
