@@ -15,8 +15,8 @@ Create a docker image based on nginx in order to serve a static asset of 500KB+.
 
 ```
 PROJECT_ID=kudos-spikes
-# Generate index.html file larger than 500k
-python3 -c 'for i in range(0,130000): print("test",end="")' > web-server/index.html
+# Generate a varies sizes of index.html 
+for i in {1..7}; do python3 -c "for i in range(0,26000 * ${i}): print('test',end='')" > web-server/index-${i}00.html; done
 docker build -t gcr.io/$PROJECT_ID/gcp-perf-test-nginx web-server/
 docker push gcr.io/$PROJECT_ID/gcp-perf-test-nginx
 ```
